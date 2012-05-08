@@ -40,3 +40,4 @@ end
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
+gem "i18n_generators"
