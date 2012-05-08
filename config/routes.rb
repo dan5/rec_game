@@ -3,8 +3,6 @@ RecGame::Application.routes.draw do
   resources :users
 
   resources :results
-  get 'results/new/:category' => 'results#new'
-  get 'results/category/:category' => 'results#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

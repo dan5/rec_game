@@ -17,7 +17,7 @@ class ResultsController < ApplicationController
 
   def new
     @result = @user.results.new
-    @result.category = params[:category]
+    @result.category = session[:category]
   end
 
   def edit

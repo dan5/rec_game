@@ -2,11 +2,12 @@
   %h1 #{@user.name} #{@category}の試合結果
 
 %p
+  カテゴリ選択:
   - @categorys.each do |category|
-    = link_to category, results_path + "/category/#{category}"
+    = link_to category, results_path + "?category=#{category}"
 
 - if @category
-  %p= link_to "#{@category}の結果を追加", new_result_path + "/#{@category}"
+  %p= link_to "#{@category}の結果を追加", new_result_path
 
 %table
   %tr
