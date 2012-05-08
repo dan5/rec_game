@@ -5,6 +5,11 @@ class UsersController < ApplicationController
     redirect_to results_url
   end
 
+  def logout
+    session[:user_id] = nil
+    redirect_to users_url
+  end
+
   def index
     @users = User.all
   end
@@ -18,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    login_required
   end
 
   def create
@@ -32,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    login_required
     if @user.update_attributes(params[:user])
       redirect_to @user, notice: 'User was successfully updated.'
     else
@@ -41,7 +46,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    login_required
     @user.destroy
 
     redirect_to users_url

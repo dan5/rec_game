@@ -1,7 +1,5 @@
 class ResultsController < ApplicationController
-  before_filter {
-    @user = User.find(session[:user_id])
-  }
+  before_filter { login_required }
 
   def index
     @categorys = %w(L LL SL)
