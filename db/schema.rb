@@ -14,14 +14,16 @@
 ActiveRecord::Schema.define(:version => 20120508033543) do
 
   create_table "results", :force => true do |t|
+    t.integer  "user_id"
     t.date     "date"
+    t.string   "category"
     t.string   "team"
     t.string   "opp"
     t.integer  "score"
     t.integer  "opp_score"
     t.string   "competition"
     t.string   "place"
-    t.string   "note"
+    t.text     "note"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

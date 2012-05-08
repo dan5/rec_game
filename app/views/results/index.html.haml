@@ -1,26 +1,37 @@
-%h1 Listing results
+- if @category
+  %h1 美晴SC #{@category}の試合結果
+
+%p
+  - @categorys.each do |category|
+    = link_to category, results_path + "/category/#{category}"
+
+- if @category
+  %p= link_to "#{@category}の結果を追加", new_result_path + "/#{@category}"
 
 %table
   %tr
-    %th Date
-    %th Team
-    %th Opp
-    %th Score
-    %th Opp score
-    %th Competition
-    %th Place
-    %th Note
+    %th=t 'result.category'
+    %th=t 'result.date'
+    %th=t 'result.team'
+    %th=t 'result.score'
+    %th=t 'result.opp'
+    %th=t 'result.competition'
+    %th=t 'result.place'
+    %th=t 'result.note'
     %th
     %th
     %th
 
   - @results.each do |result|
     %tr
+      %td= result.category
       %td= result.date
       %td= result.team
+      %td
+        = result.score
+        = '-'
+        = result.opp_score
       %td= result.opp
-      %td= result.score
-      %td= result.opp_score
       %td= result.competition
       %td= result.place
       %td= result.note
@@ -28,6 +39,3 @@
       %td= link_to 'Edit', edit_result_path(result)
       %td= link_to 'Destroy', result, :confirm => 'Are you sure?', :method => :delete
 
-%br
-
-= link_to 'New Result', new_result_path

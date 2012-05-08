@@ -5,30 +5,31 @@
       %ul
         - @result.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :date
-    = f.date_select :date
-  .field
-    = f.label :team
-    = f.text_field :team
-  .field
-    = f.label :opp
-    = f.text_field :opp
-  .field
-    = f.label :score
-    = f.number_field :score
-  .field
-    = f.label :opp_score
-    = f.number_field :opp_score
-  .field
-    = f.label :competition
-    = f.text_field :competition
-  .field
-    = f.label :place
-    = f.text_field :place
-  .field
-    = f.label :note
-    = f.text_field :note
+  = f.hidden_field :category
+  %table
+    %tr
+      %td= f.label :date
+      %td= f.date_select :date
+    %tr
+      %td= f.label :team
+      %td= f.select :team, %w(4年 3年 3,4年)
+    %tr
+      %td= f.label :score
+      %td= f.select :score, 0..20
+    %tr
+      %td= f.label :opp_score
+      %td= f.select :opp_score, 0..20
+    %tr
+      %td= f.label :opp
+      %td= f.text_field :opp
+    %tr
+      %td= f.label :competition
+      %td= f.text_field :competition
+    %tr
+      %td= f.label :place
+      %td= f.text_field :place
+    %tr
+      %td= f.label :note
+      %td= f.text_area :note, :size => '40x4'
   .actions
     = f.submit 'Save'

@@ -2,12 +2,9 @@ class ResultsController < ApplicationController
   # GET /results
   # GET /results.json
   def index
-    @results = Result.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @results }
-    end
+    @categorys = %w(L LL SL)
+    @category = params[:category] || @categorys.first
+    @results = Result.where(:category => @category)
   end
 
   # GET /results/1
@@ -25,6 +22,7 @@ class ResultsController < ApplicationController
   # GET /results/new.json
   def new
     @result = Result.new
+    @result.category = params[:category]
 
     respond_to do |format|
       format.html # new.html.erb
