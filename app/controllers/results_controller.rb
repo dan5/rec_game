@@ -1,81 +1,53 @@
 class ResultsController < ApplicationController
-  # GET /results
-  # GET /results.json
+  before_filter {
+    @user = User.find(session[:user_id])
+  }
+
   def index
     @categorys = %w(L LL SL)
-    @category = params[:category] || @categorys.first
-    @results = Result.where(:category => @category)
+    @category = params[:category] || session[:category] || @categorys.first
+    @results = @user.results.where(:category => @category)
+
+    session[:category] = @category
   end
 
-  # GET /results/1
-  # GET /results/1.json
   def show
-    @result = Result.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @result }
-    end
+    @result = @user.results.find(params[:id])
   end
 
-  # GET /results/new
-  # GET /results/new.json
   def new
-    @result = Result.new
+    @result = @user.results.new
     @result.category = params[:category]
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @result }
-    end
   end
 
-  # GET /results/1/edit
   def edit
-    @result = Result.find(params[:id])
+    @result = @user.results.find(params[:id])
   end
 
-  # POST /results
-  # POST /results.json
   def create
-    @result = Result.new(params[:result])
+    @result = @user.results.new(params[:result])
 
-    respond_to do |format|
-      if @result.save
-        format.html { redirect_to @result, notice: 'Result was successfully created.' }
-        format.json { render json: @result, status: :created, location: @result }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @result.errors, status: :unprocessable_entity }
-      end
+    if @result.save
+      redirect_to @result, notice: 'Result was successfully created.'
+    else
+      render action: "new"
     end
   end
 
-  # PUT /results/1
-  # PUT /results/1.json
   def update
-    @result = Result.find(params[:id])
+    @result = @user.results.find(params[:id])
 
-    respond_to do |format|
-      if @result.update_attributes(params[:result])
-        format.html { redirect_to @result, notice: 'Result was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @result.errors, status: :unprocessable_entity }
-      end
+    if @result.update_attributes(params[:result])
+      redirect_to @result, notice: 'Result was successfully updated.'
+    else
+      render action: "edit"
     end
   end
 
-  # DELETE /results/1
-  # DELETE /results/1.json
   def destroy
-    @result = Result.find(params[:id])
+    @result = @user.results.find(params[:id])
     @result.destroy
 
-    respond_to do |format|
-      format.html { redirect_to results_url }
-      format.json { head :no_content }
-    end
+    redirect_to results_url
   end
 end

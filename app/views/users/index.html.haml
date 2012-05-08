@@ -1,8 +1,11 @@
 %h1 Listing users
 
+= params
+
 %table
   %tr
     %th Name
+    %th Mail
     %th Login
     %th Summary
     %th Description
@@ -12,7 +15,8 @@
 
   - @users.each do |user|
     %tr
-      %td= user.name
+      %td= link_to user.name, users_path + "/login?login=#{user.login}"
+      %td= user.mail
       %td= user.login
       %td= user.summary
       %td= user.description

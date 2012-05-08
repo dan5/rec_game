@@ -1,4 +1,5 @@
 RecGame::Application.routes.draw do
+  get 'users/login' => 'users#login'
   resources :users
 
   resources :results
