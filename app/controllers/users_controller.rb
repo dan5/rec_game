@@ -1,10 +1,4 @@
 class UsersController < ApplicationController
-  def login
-    @user = User.find_by_login params[:login]
-    session[:user_id] = @user.id
-    redirect_to results_url
-  end
-
   def logout
     session[:user_id] = nil
     redirect_to users_url
@@ -19,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    @new_user = User.new
   end
 
   def edit
