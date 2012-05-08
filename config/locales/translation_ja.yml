@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      result: 結果  #g
+
+    attributes:
+      result:
+        competition: 競争  #g
+        date: 日付  #g
+        note: ノート  #g
+        opp: Opp  #g
+        opp_score: Oppのスコア  #g
+        place: 場所  #g
+        score: スコア  #g
+        team: チーム  #g

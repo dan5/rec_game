@@ -1,0 +1,33 @@
+%h1 Listing results
+
+%table
+  %tr
+    %th Date
+    %th Team
+    %th Opp
+    %th Score
+    %th Opp score
+    %th Competition
+    %th Place
+    %th Note
+    %th
+    %th
+    %th
+
+  - @results.each do |result|
+    %tr
+      %td= result.date
+      %td= result.team
+      %td= result.opp
+      %td= result.score
+      %td= result.opp_score
+      %td= result.competition
+      %td= result.place
+      %td= result.note
+      %td= link_to 'Show', result
+      %td= link_to 'Edit', edit_result_path(result)
+      %td= link_to 'Destroy', result, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Result', new_result_path

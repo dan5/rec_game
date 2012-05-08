@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Date:
+  = @result.date
+%p
+  %b Team:
+  = @result.team
+%p
+  %b Opp:
+  = @result.opp
+%p
+  %b Score:
+  = @result.score
+%p
+  %b Opp score:
+  = @result.opp_score
+%p
+  %b Competition:
+  = @result.competition
+%p
+  %b Place:
+  = @result.place
+%p
+  %b Note:
+  = @result.note
+
+= link_to 'Edit', edit_result_path(@result)
+\|
+= link_to 'Back', results_path
