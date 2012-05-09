@@ -11,3 +11,22 @@
  *= require_self
  *= require_tree .
 */
+
+.top { vertical-align: top; }
+.middle { vertical-align: middle; }
+.bottom { vertical-align: bottom; }
+.left { text-align: left; }
+.right { text-align: right; }
+.center { text-align: center; }
+.gray { color: #888888; }
+.red { color: red; }
+.small {
+  font-size: 70%;
+  line-height: 1.62;
+}
+.big {
+  font-size: 150%;
+  line-height: 1.62;
+}
+.bold { font-weight: bold; }
+.nowrap { white-space: nowrap; }
