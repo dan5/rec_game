@@ -1,4 +1,6 @@
 RecGame::Application.routes.draw do
+  get "welcome/index"
+
   get "login/:login" => 'login#login'
 
   get 'users/logout' => 'users#logout'
