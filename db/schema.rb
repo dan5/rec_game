@@ -32,10 +32,12 @@ ActiveRecord::Schema.define(:version => 20120508075347) do
     t.string   "name"
     t.string   "mail"
     t.string   "login"
+    t.string   "url"
     t.string   "summary"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.text     "categorys_text"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end

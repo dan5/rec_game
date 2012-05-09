@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 class UsersController < ApplicationController
   include LoginHelper
 
@@ -12,8 +14,8 @@ class UsersController < ApplicationController
 
   def show
     @current_user = User.find(params[:id])
-    @categorys = %w(L LL SL)
-    @category = params[:category] || session[:category] || @categorys.first
+    @categorys = @current_user.categorys
+    @category = params[:category] || @categorys.first
     @results = @current_user.results.where(:category => @category)
   end
 
@@ -29,6 +31,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     @user.login = rand(1000000000000).to_s(36)
+    # 本当はここに日本語メッセージを書くのは良くない
+    @user.categorys_text = "高学年\n中学年\n低学年"
     if @user.save
       redirect_to login_url, notice: 'User was successfully created.'
     else

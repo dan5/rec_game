@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   class UnAuthorized < Exception ; end
 
-  attr_accessible :description, :mail, :name, :summary
+  attr_accessible :description, :mail, :url, :name, :summary, :groups
   has_many :results
+
+  def categorys
+    categorys_text.split
+  end
 end

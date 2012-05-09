@@ -17,10 +17,17 @@
     %tr
       %td= f.label :summary
       %td= f.text_field :summary
-    ==<!--
-    %tr
-      %td= f.label :description
-      %td= f.text_area :description
-    ==-->
+    - if action_name == 'edit'
+      %tr
+        %td= f.label :url
+        %td= f.text_field :url
+      %tr
+        %td= f.label :categorys_text
+        %td= f.text_area :categorys_text, :size => '20x8'
+      ==<!--
+      %tr
+        %td= f.label :description
+        %td= f.text_area :description
+      ==-->
   .actions
     = f.submit 'Save'

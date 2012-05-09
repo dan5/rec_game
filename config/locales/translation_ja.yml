@@ -32,5 +32,7 @@ ja:
         login: ログイン  #g
         mail: メールアドレス  #g
         name: チーム名  #g
-        results: 結果  #g
+        url: ホームページのURL
         summary: ひとこと説明  #g
+        categorys_text: カテゴリ
+

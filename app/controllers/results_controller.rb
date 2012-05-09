@@ -3,7 +3,7 @@ class ResultsController < ApplicationController
   before_filter { login_required }
 
   def index
-    @categorys = %w(L LL SL)
+    @categorys = @user.categorys
     @category = params[:category] || session[:category] || @categorys.first
     @results = @user.results.where(:category => @category)
 
