@@ -47,6 +47,7 @@ class UsersController < ApplicationController
 
   def destroy
     login_required
+    raise User::UnAuthorized unless @user == User.find(params[:id])
     @user.destroy
 
     redirect_to users_url
