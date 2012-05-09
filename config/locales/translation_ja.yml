@@ -7,7 +7,7 @@ ja:
     score: 得点  #g
     place: 会場  #g
     note: 備考  #g
-    team: 美晴
+    team: チーム
 
   activerecord:
     models:

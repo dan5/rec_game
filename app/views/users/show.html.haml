@@ -2,7 +2,11 @@
 
 %p#notice= notice
 
-%p= @current_user.summary
+%p.summary
+  = @current_user.summary
+  - url = @current_user.url
+  - if url and !url.empty?
+    = link_to '» ホームページ', url
 
 %div.description
   = @current_user.description

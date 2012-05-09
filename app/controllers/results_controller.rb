@@ -27,7 +27,7 @@ class ResultsController < ApplicationController
     @result = @user.results.new(params[:result])
 
     if @result.save
-      redirect_to @result, notice: 'Result was successfully created.'
+      redirect_to results_url, notice: 'Result was successfully created.'
     else
       render action: "new"
     end
@@ -37,7 +37,7 @@ class ResultsController < ApplicationController
     @result = @user.results.find(params[:id])
 
     if @result.update_attributes(params[:result])
-      redirect_to @result, notice: 'Result was successfully updated.'
+      redirect_to results_url, notice: 'Result was successfully updated.'
     else
       render action: "edit"
     end

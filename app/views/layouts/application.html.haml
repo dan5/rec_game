@@ -10,11 +10,10 @@
   %body
     = yield
 
-    - if @user
-      .right
-        = link_to "ログイン中: #{@user.name}", login_url
-
   #footer
     %hr
+    - if @user
+      .right
+        = link_to "ログインしています: #{@user.name}", login_url
     =link_to 'rec game', '/'
 

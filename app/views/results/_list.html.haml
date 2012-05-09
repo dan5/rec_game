@@ -1,4 +1,4 @@
-- is_editing = action_name == 'results'
+- is_editing = controller_name == 'results'
 
 %p
   カテゴリ選択:
@@ -8,7 +8,7 @@
 - if is_editing
   %p= link_to "#{@category}の結果を追加", new_result_path
 
-%table
+%table.results
   %tr
     %th=t 'result.category'
     %th=t 'result.date'
@@ -24,10 +24,10 @@
 
   - @results.each do |result|
     %tr
-      %td= result.category
-      %td= result.date
-      %td= result.team
-      %td
+      %td.center.nowrap= result.category
+      %td.center.nowrap= result.date
+      %td.center.nowrap= result.team
+      %td.center.nowrap
         = result.score
         = '-'
         = result.opp_score
@@ -36,6 +36,6 @@
       %td= result.place
       %td= result.note
       - if is_editing
-        %td= link_to '編集', edit_result_path(result)
-        %td= link_to '削除', result, :confirm => 'Are you sure?', :method => :delete
+        %td.nowrap= link_to '編集', edit_result_path(result)
+        %td.nowrap= link_to '削除', result, :confirm => 'Are you sure?', :method => :delete
 

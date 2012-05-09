@@ -1,3 +1,32 @@
 // Place all the styles related to the results controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+p.summary {
+  padding: 0 16px;
+  font-size: 13px;
+  color: #444;
+}
+
+.results {
+  table {
+    border: 1px solid #ccc;
+  }
+  
+  th {
+    padding: 0 4px;
+    border: 1px solid #ccc;
+    background: #ddd;
+    white-space: nowrap;
+  }
+  
+  td {
+    border: 1px solid #ddd;
+    padding: 0 4px;
+    margin: 0;
+  }
+}
+
+hr {
+  color: #ccc;
+}
