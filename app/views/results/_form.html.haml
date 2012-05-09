@@ -5,14 +5,20 @@
       %ul
         - @result.errors.full_messages.each do |msg|
           %li= msg
-  = f.hidden_field :category
+  - is_new = action_name == 'new'
+  - if is_new
+    = f.hidden_field :category
   %table
+    - unless is_new
+      %tr
+        %td= f.label :category
+        %td= f.select :category, @user.categorys
     %tr
       %td= f.label :date
       %td= f.date_select :date
     %tr
       %td= f.label :team
-      %td= f.select :team, %w(4年 3年 3,4年)
+      %td= f.select :team, %w(4 3 3,4)
     %tr
       %td= f.label :score
       %td= f.select :score, 0..20

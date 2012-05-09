@@ -7,4 +7,12 @@ class User < ActiveRecord::Base
   def categorys
     categorys_text.split
   end
+
+  def category_results(category)
+    if category == 'ALL'
+      results
+    else
+      results.where(:category => category)
+    end
+  end
 end

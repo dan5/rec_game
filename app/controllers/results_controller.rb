@@ -5,7 +5,7 @@ class ResultsController < ApplicationController
   def index
     @categorys = @user.categorys
     @category = params[:category] || session[:category] || @categorys.first
-    @results = @user.results.where(:category => @category)
+    @results = @user.category_results(@category)
 
     session[:category] = @category
   end

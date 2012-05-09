@@ -4,9 +4,13 @@
   カテゴリ選択:
   - @categorys.each do |category|
     = link_to category, request.path_info + "?category=#{category}"
+  = link_to 'ALL', request.path_info + "?category=ALL"
 
 - if is_editing
-  %p= link_to "#{@category}の結果を追加", new_result_path
+  - if @category == 'ALL'
+    %p= "結果を追加するにはカテゴリを選択してください"
+  - else
+    %p= link_to "#{@category}の結果を追加", new_result_path
 
 %table.results
   %tr

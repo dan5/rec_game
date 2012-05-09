@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @current_user = User.find(params[:id])
     @categorys = @current_user.categorys
     @category = params[:category] || @categorys.first
-    @results = @current_user.results.where(:category => @category)
+    @results = @current_user.category_results(@category)
   end
 
   def new
