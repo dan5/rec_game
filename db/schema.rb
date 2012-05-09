@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20120508075347) do
     t.string   "summary"
     t.text     "description"
     t.text     "categorys_text"
+    t.text     "teams_text"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end

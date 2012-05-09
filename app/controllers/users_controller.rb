@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     @user.login = rand(1000000000000).to_s(36)
     # 本当はここに日本語メッセージを書くのは良くない
     @user.categorys_text = "高学年\n中学年\n低学年"
+    @user.teams_text = "6年\n5年\n4年\n3年\n2年\n1年"
     if @user.save
       redirect_to login_url, notice: 'User was successfully created.'
     else
