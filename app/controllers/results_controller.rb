@@ -1,4 +1,5 @@
 class ResultsController < ApplicationController
+  before_filter { user }
   before_filter { login_required }
 
   def index

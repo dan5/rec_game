@@ -1,21 +1,33 @@
+%h1= @current_user.name
+
 %p#notice= notice
 
-%p
-  %b Name:
-  = @user.name
-%p
-  %b Mail:
-  = @user.mail
-%p
-  %b Login:
-  = @user.login
-%p
-  %b Summary:
-  = @user.summary
-%p
-  %b Description:
-  = @user.description
+%p= @current_user.summary
 
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+%div.description
+  = @current_user.description
+
+%table
+  %tr
+    %th=t 'result.category'
+    %th=t 'result.date'
+    %th=t 'result.team'
+    %th=t 'result.score'
+    %th=t 'result.opp'
+    %th=t 'result.competition'
+    %th=t 'result.place'
+    %th=t 'result.note'
+
+  - @results.each do |result|
+    %tr
+      %td= result.category
+      %td= result.date
+      %td= result.team
+      %td
+        = result.score
+        = '-'
+        = result.opp_score
+      %td= result.opp
+      %td= result.competition
+      %td= result.place
+      %td= result.note

@@ -1,7 +1,14 @@
-%p <b>#{@user.name}</b>でログインしました。
+%p <b>#{@user.name}</b>でログインしています。
 
-%p= link_to '» 試合結果を編集', results_path
 
 %p 今開いているページがログインページなりますので、忘れないようブックマークをお願いします。
 
 %p このページのURLは他人に知られないようご注意ください。
+
+%h3 メニュー
+
+%ul
+  %li= link_to '試合結果を追加・編集', results_path
+  %li= link_to 'チーム情報を編集', edit_user_path(@user)
+  %li= link_to "#{@user.name}の公開ページ", @user
+  %li= link_to "ログアウト", users_path + '/logout'

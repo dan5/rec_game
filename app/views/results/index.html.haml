@@ -1,5 +1,5 @@
 - if @category
-  %h1 #{@user.name} #{@category}の試合結果
+  %h1 試合結果編集 #{@user.name} #{@category}
 
 %p
   カテゴリ選択:
@@ -21,7 +21,6 @@
     %th=t 'result.note'
     %th
     %th
-    %th
 
   - @results.each do |result|
     %tr
@@ -36,7 +35,6 @@
       %td= result.competition
       %td= result.place
       %td= result.note
-      %td= link_to 'Show', result
-      %td= link_to 'Edit', edit_result_path(result)
-      %td= link_to 'Destroy', result, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to '編集', edit_result_path(result)
+      %td= link_to '削除', result, :confirm => 'Are you sure?', :method => :delete
 

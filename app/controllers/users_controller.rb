@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include LoginHelper
+
   def logout
     session[:user_id] = nil
     redirect_to users_url
@@ -9,7 +11,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @current_user = User.find(params[:id])
+    @categorys = %w(L LL SL)
+    @category = params[:category] || session[:category] || @categorys.first
+    @results = @current_user.results.where(:category => @category)
   end
 
   def new
@@ -25,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.login = rand(1000000000000).to_s(36)
     if @user.save
-      redirect_to "/login/#{@user.login}", notice: 'User was successfully created.'
+      redirect_to login_url, notice: 'User was successfully created.'
     else
       render action: "new"
     end
@@ -34,7 +39,7 @@ class UsersController < ApplicationController
   def update
     login_required
     if @user.update_attributes(params[:user])
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to login_url, notice: 'User was successfully updated.'
     else
       render action: "edit"
     end

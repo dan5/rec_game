@@ -8,16 +8,15 @@
     = csrf_meta_tags
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   %body
+    = yield
+
     - if @user
       .right
-        = link_to @user.name, users_path
-        |
         = link_to '試合結果を編集', results_path
         |
-        ==<!--
-        = link_to 'ユーザーを編集', edit_user_path(@user)
-        |
-        ==-->
-        = link_to "ログアウト", users_path + '/logout'
+        = link_to 'チーム情報を編集', edit_user_path(@user)
 
-    = yield
+  #footer
+    %hr
+    =link_to 'rec game', '/'
+
