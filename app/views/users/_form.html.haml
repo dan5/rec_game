@@ -1,4 +1,4 @@
-- user = @user || @new_user
+- user = @new_user || @user
 = form_for user do |f|
   -if user.errors.any?
     #error_explanation
@@ -7,17 +7,20 @@
         - user.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :mail
-    = f.text_field :mail
-  .field
-    = f.label :summary
-    = f.text_field :summary
-  .field
-    = f.label :description
-    = f.text_area :description
+  %table
+    %tr
+      %td= f.label :name
+      %td= f.text_field :name
+    %tr
+      %td= f.label :mail
+      %td= f.text_field :mail
+    %tr
+      %td= f.label :summary
+      %td= f.text_field :summary
+    ==<!--
+    %tr
+      %td= f.label :description
+      %td= f.text_area :description
+    ==-->
   .actions
     = f.submit 'Save'

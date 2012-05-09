@@ -18,13 +18,14 @@ class UsersController < ApplicationController
 
   def edit
     login_required
+    raise User::UnAuthorized unless @user == User.find(params[:id])
   end
 
   def create
     @user = User.new(params[:user])
     @user.login = rand(1000000000000).to_s(36)
     if @user.save
-      redirect_to @user, notice: 'User was successfully created.'
+      redirect_to "/login/#{@user.login}", notice: 'User was successfully created.'
     else
       render action: "new"
     end

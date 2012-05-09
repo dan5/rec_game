@@ -8,9 +8,11 @@ ja:
     place: 会場  #g
     note: 備考  #g
     team: 美晴
+
   activerecord:
     models:
       result: 結果  #g
+      user: ユーザー  #g
 
     attributes:
       result:
@@ -22,3 +24,13 @@ ja:
         place: 会場  #g
         score: 得点  #g
         team: チーム  #g
+        category: カテゴリ #g
+        user: :activerecord.models.user  #g
+
+      user:
+        description: 詳細説明  #g
+        login: ログイン  #g
+        mail: メールアドレス  #g
+        name: チーム名  #g
+        results: 結果  #g
+        summary: ひとこと説明  #g
