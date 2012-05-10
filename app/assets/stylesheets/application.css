@@ -30,3 +30,12 @@
 }
 .bold { font-weight: bold; }
 .nowrap { white-space: nowrap; }
+
+body {
+  margin: 24px 32px;
+}
+
+h2 {
+  margin-top: 32px;
+  margin-bottom: 24px;
+}

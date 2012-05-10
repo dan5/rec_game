@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def show
     @current_user = User.find(params[:id])
     @categorys = @current_user.categorys
-    @category = params[:category] || @categorys.first
+    @category = params[:category] || 'ALL'
     @results = @current_user.category_results(@category)
   end
 

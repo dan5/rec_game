@@ -2,9 +2,11 @@
 
 %p
   カテゴリ選択:
-  - @categorys.each do |category|
-    = link_to category, request.path_info + "?category=#{category}"
-  = link_to 'ALL', request.path_info + "?category=ALL"
+  - [@categorys, 'ALL'].flatten.each do |category|
+    - if category == @category
+      %b= category
+    - else
+      = link_to category, request.path_info + "?category=#{category}"
 
 - if is_editing
   - if @category.nil? or @category == 'ALL'

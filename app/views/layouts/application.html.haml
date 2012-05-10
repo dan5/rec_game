@@ -2,7 +2,7 @@
 !!! 1.1
 %html{"xml:lang" => "ja", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
-    %title== Bu#{@subtitle}
+    %title== 試合きろく#{@subtitle}
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -15,5 +15,5 @@
     - if @user
       .right
         = link_to "ログインしています: #{@user.name}", login_url
-    =link_to 'rec game', '/'
 
+    =link_to '試合きろく', '/'

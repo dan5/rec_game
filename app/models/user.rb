@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :description, :mail, :url, :name, :summary, :categorys_text, :teams_text
 
-  has_many :results
+  has_many :results, dependent: :destroy, :order => ['date desc', 'created_at desc']
 
   validates :name, :presence => true,
                    :length => { :maximum => 32}

@@ -13,9 +13,12 @@
 }
 
 p.summary {
-  padding: 0 16px;
+  padding: 6px 10px;
+  margin: 0 8px;
   font-size: 13px;
   color: #444;
+  background: #ddd;
+  border-radius: 4px;
 }
 
 .results {
@@ -28,12 +31,14 @@ p.summary {
     border: 1px solid #ccc;
     background: #ddd;
     white-space: nowrap;
+    border-radius: 1px;
   }
   
   td {
     border: 1px solid #ddd;
     padding: 0 4px;
     margin: 0;
+    border-radius: 1px;
   }
 }
 
