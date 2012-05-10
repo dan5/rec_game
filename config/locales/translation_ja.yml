@@ -31,8 +31,9 @@ ja:
         description: 詳細説明  #g
         login: ログイン  #g
         mail: メールアドレス  #g
-        name: チーム名  #g
+        name: 団体名  #g
         url: ホームページのURL
         summary: ひとこと説明  #g
-        categorys_text: カテゴリ
+        categorys_text: カテゴリ定義
+        teams_text: チーム定義
 

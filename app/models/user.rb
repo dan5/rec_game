@@ -2,7 +2,13 @@ class User < ActiveRecord::Base
   class UnAuthorized < Exception ; end
 
   attr_accessible :description, :mail, :url, :name, :summary, :categorys_text, :teams_text
+
   has_many :results
+
+  validates :name, :presence => true,
+                   :length => { :maximum => 32}
+  validates :categorys_text, :presence => true
+  validates :teams_text, :presence => true
 
   def categorys
     categorys_text.split

@@ -9,23 +9,45 @@
 
   %table
     %tr
-      %td= f.label :name
+      %td
+        = f.label :name
+        %span.presence ※必須
       %td= f.text_field :name
     %tr
-      %td= f.label :mail
+      %td
+        = f.label :mail
+        %span.presence ※必須
       %td= f.text_field :mail
     %tr
       %td= f.label :summary
       %td= f.text_field :summary
-    - if action_name == 'edit'
+    - if action_name == 'edit' or action_name == 'update'
       %tr
         %td= f.label :url
         %td= f.text_field :url
       %tr
-        %td= f.label :categorys_text
+        %td
+          = f.label :categorys_text
+          %span.presence ※必須
+          %p.example
+            例）低学年 幼稚園等
+          %p.example
+            カテゴリ分けが不要な場合は
+            %br
+            団体名を入力しておいてくだ
+            %br
+            さい。
+            %br
+            例）横浜FC
         %td= f.text_area :categorys_text, :size => '20x8'
       %tr
-        %td= f.label :teams_text
+        %td
+          = f.label :teams_text
+          %span.presence ※必須
+          %p.example
+            団体内のチームを定義します。
+            %br
+            例）一軍 二軍 1年 2年-A等
         %td= f.text_area :teams_text, :size => '20x8'
       ==<!--
       %tr
