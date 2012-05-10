@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 
   rescue_from User::UnAuthorized, :with => -> { render :text => 'ログインしていません.' }
 
+  before_filter { 
+    @category = session[:category]
+    session[:category] = nil
+  }
+
   private
 
   def user

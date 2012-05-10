@@ -1,10 +1,6 @@
 class ResultsController < ApplicationController
   before_filter { user }
   before_filter { login_required }
-  before_filter { 
-    @category = session[:category]
-    session[:category] = nil
-  }
   after_filter {
     session[:category] = @category
   }
