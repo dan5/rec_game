@@ -7,8 +7,11 @@ class User < ActiveRecord::Base
 
   validates :name, :presence => true,
                    :length => { :maximum => 32}
-  validates :categorys_text, :presence => true
-  validates :teams_text, :presence => true
+  validates :mail, :length => { :maximum => 128}
+  validates :summary, :length => { :maximum => 140}
+  validates :description, :length => { :maximum => 2048}
+  validates :categorys_text, :presence => true, :length => { :maximum => 512}
+  validates :teams_text, :presence => true, :length => { :maximum => 512}
 
   def categorys
     categorys_text.split
