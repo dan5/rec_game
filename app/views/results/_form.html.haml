@@ -18,7 +18,7 @@
       %td= f.date_select :date
     %tr
       %td= f.label :team
-      %td= f.select :team, @user.teams
+      %td= f.select :team, @user.teams(@result.category)
     %tr
       %td= f.label :score
       %td= f.select :score, 0..20

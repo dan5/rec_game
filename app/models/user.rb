@@ -8,8 +8,19 @@ class User < ActiveRecord::Base
     categorys_text.split
   end
 
-  def teams
-    teams_text.split
+  def teams(category = nil)
+    a = teams_text.split
+    if category
+      hash = {}
+      a.each do |e|
+        if e =~ /([^\s]+)::([^\s]+)/
+          hash[$1] ||= []
+          hash[$1] << $2 
+        end
+      end
+      a = hash[category] if hash[category]
+    end
+    a.map {|e| e.sub(/[^\s]+::/, '') }
   end
 
   def category_results(category)
