@@ -1,13 +1,18 @@
 class ResultsController < ApplicationController
   before_filter { user }
   before_filter { login_required }
+  before_filter { 
+    @category = session[:category]
+    session[:category] = nil
+  }
+  after_filter {
+    session[:category] = @category
+  }
 
   def index
+    @category = params[:category] if params[:category]
     @categorys = @user.categorys
-    @category = params[:category] || session[:category] || @categorys.first
     @results = @user.category_results(@category)
-
-    session[:category] = @category
   end
 
   def show
@@ -16,7 +21,7 @@ class ResultsController < ApplicationController
 
   def new
     @result = @user.results.new
-    @result.category = session[:category]
+    @result.category = @category
   end
 
   def edit

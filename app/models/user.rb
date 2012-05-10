@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   end
 
   def category_results(category)
-    if category == 'ALL'
+    if category.nil? or category == 'ALL'
       results
     else
       results.where(:category => category)

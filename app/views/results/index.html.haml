@@ -1,4 +1,6 @@
-- if @category
-  %h1 試合結果編集 #{@user.name} #{@category}
+%h1
+  試合結果編集
+  = @user.name
+  = @category if @category
 
 = render 'list'
