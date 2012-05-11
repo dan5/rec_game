@@ -8,6 +8,7 @@ ja:
     place: 会場  #g
     note: 備考  #g
     team: チーム
+    win: 勝敗
 
   activerecord:
     models:
@@ -25,6 +26,7 @@ ja:
         score: 得点  #g
         team: チーム  #g
         category: カテゴリ #g
+        win: 勝敗
         user: :activerecord.models.user  #g
 
       user:

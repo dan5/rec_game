@@ -19,6 +19,10 @@
     %tr
       %td= f.label :team
       %td= f.select :team, @user.teams(@result.category)
+    - unless is_new
+      %tr
+        %td= f.label :win
+        %td= f.select :win, %w(◯ × △ -)
     %tr
       %td= f.label :score
       %td= f.select :score, 0..20

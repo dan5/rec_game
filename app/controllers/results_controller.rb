@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 class ResultsController < ApplicationController
   before_filter { user }
   before_filter { login_required }
@@ -32,7 +34,9 @@ class ResultsController < ApplicationController
 
   def create
     @result = @user.results.new(params[:result])
-
+    @result.win = if @result.score > @result.opp_score then '◯'
+                  elsif @result.score < @result.opp_score then '☓'
+                  else '△' end
     if @result.save
       redirect_to results_url, notice: 'Result was successfully created.'
     else
