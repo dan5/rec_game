@@ -18,6 +18,10 @@ class ResultsController < ApplicationController
   def new
     @result = @user.results.new
     @result.category = @category
+    if last = @user.results.find_by_category(@category)
+      @result.competition = last.competition
+      @result.place = last.place
+    end
   end
 
   def edit
