@@ -12,10 +12,11 @@
       %div.content
         = yield
 
-      #footer
+      .footer
         %hr
         - if @user
-          .right
+          %p.right
             = link_to "ログインしています: #{@user.name}", login_url
   
-        =link_to '試合きろく', '/'
+        %p
+          このサイトは<b>#{link_to '試合きろく', '/'}</b>で作られています

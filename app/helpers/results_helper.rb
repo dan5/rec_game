@@ -12,9 +12,9 @@ module ResultsHelper
             else
               nil
             end
-      if nxt == row.send(colum_name)
+      if !nxt.blank? and nxt == row.send(colum_name)
         n = 0
-        rows[i, 20].each {|e| e.send(colum_name) == nxt ? n += 1 : break }
+        rows[i..-1].each {|e| e.send(colum_name) == nxt ? n += 1 : break }
         rowspans[i] = n
         skip_ct = n - 1
       else
