@@ -29,7 +29,9 @@
       %th
       %th
 
-  - @results.each do |result|
+  - place_rowspans = rowspans_table(@results, :place)
+  - compe_rowspans = rowspans_table(@results, :competition)
+  - @results.each_with_index do |result, i|
     %tr
       %td.center.nowrap= result.category
       %td.center.nowrap= result.date
@@ -40,8 +42,11 @@
         = '-'
         = result.opp_score
       %td= result.opp
-      %td= result.competition
-      %td= result.place
+      - unless compe_rowspans[i].nil?
+        %td{:rowspan => compe_rowspans[i]}= result.competition
+      - unless place_rowspans[i].nil?
+        %td{:rowspan => place_rowspans[i]}= result.place
+
       %td= result.note
       - if is_editing
         %td.nowrap= link_to '編集', edit_result_path(result)
