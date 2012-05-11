@@ -7,13 +7,15 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  %body
-    = yield
+  %body{ :class => controller_name }
+    %div.main
+      %div.content
+        = yield
 
-  #footer
-    %hr
-    - if @user
-      .right
-        = link_to "ログインしています: #{@user.name}", login_url
-
-    =link_to '試合きろく', '/'
+      #footer
+        %hr
+        - if @user
+          .right
+            = link_to "ログインしています: #{@user.name}", login_url
+  
+        =link_to '試合きろく', '/'

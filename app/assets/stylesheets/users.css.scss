@@ -1,3 +1,15 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.users, body.welcome {
+  background: #f8f8f8;
+
+  div.main {
+    margin: 40px;
+    padding: 16px;
+    background: #fff;
+    width: 840px;
+    box-shadow: 10px 10px 20px #666;
+  }
+}

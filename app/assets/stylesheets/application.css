@@ -31,8 +31,8 @@
 .bold { font-weight: bold; }
 .nowrap { white-space: nowrap; }
 
-body {
-  margin: 24px 32px;
+div.main {
+  margin: 10px 24px;
 }
 
 h2 {
