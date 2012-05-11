@@ -18,7 +18,8 @@ class ResultsController < ApplicationController
   def new
     @result = @user.results.new
     @result.category = @category
-    if last = @user.results.find_by_category(@category)
+    #if last = @user.results.where(:category => @category).order('created_at desc').first
+    if last = Result.where(:user_id => @user, :category => @category).order('created_at desc').first
       @result.competition = last.competition
       @result.place = last.place
       @result.team = last.team
