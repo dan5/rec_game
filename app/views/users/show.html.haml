@@ -1,13 +1,15 @@
 - @subtitle = ": #{@current_user.name}の試合結果"
+
 %h1 #{@current_user.name}の試合結果
 
 %p#notice= notice
 
-%p.summary
-  = @current_user.summary
-  - url = @current_user.url
-  - if url and !url.empty?
-    = link_to '» ホームページ', url
+- unless @current_user.summary.blank?
+  %p.summary
+    = @current_user.summary
+    - url = @current_user.url
+    - if url and !url.empty?
+      = link_to '» ホームページ', url
 
 %div.description
   = @current_user.description
