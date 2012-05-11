@@ -21,6 +21,7 @@ class ResultsController < ApplicationController
     if last = @user.results.find_by_category(@category)
       @result.competition = last.competition
       @result.place = last.place
+      @result.team = last.team
     end
   end
 
