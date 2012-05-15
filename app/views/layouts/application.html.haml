@@ -2,7 +2,7 @@
 !!! 1.1
 %html{"xml:lang" => "ja", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
-    %title== 試合きろく#{@subtitle}
+    %title== 得点くん#{@subtitle}
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -17,6 +17,6 @@
         - if @user
           %p.right
             = link_to "ログインしています: #{@user.name}", login_url
-  
         %p
-          このサイトは<b>#{link_to '試合きろく', '/'}</b>で作られています
+          tokutenkun.net :
+          このサイトは<b>#{link_to '得点くん', '/'}</b>で作られています
